@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit"
 
 const initialState = {
-    tasks : JSON.parse(localStorage.getItem("task")) || []
+    tasks: JSON.parse(localStorage.getItem("task")) || []
 }
 
 
@@ -22,10 +22,30 @@ export const todoSlice = createSlice({
 
         clearAll: (state) => {
             state.tasks = [];
-            localStorage.clear()
-        } 
+            localStorage.removeItem("task")
+        },
+
+        completeTask: (state, action) => {
+            const todo = state.tasks.find(
+                item => item.id === action.payload.id
+            );
+
+            if (todo) {
+                todo.completed = true;
+            }
+
+            localStorage.setItem("task", JSON.stringify(state.tasks));
+        },
+
+        deleteTask: (state, actions) => {
+            state.tasks = state.tasks.filter(
+                item => item.id !== actions.payload.id
+            );
+
+            localStorage.setItem("task", JSON.stringify(state.tasks));
+        }
     }
 })
 
-export const { addTodo, clearAll } = todoSlice.actions
+export const { addTodo, clearAll, completeTask, deleteTask } = todoSlice.actions
 export default todoSlice.reducer

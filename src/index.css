@@ -61,6 +61,12 @@ button{
     padding-top: 2rem;
 }
 
+.task-card{
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+}
+
 .task-card div:first-child{
     display: flex;
     flex-direction: column;
@@ -77,4 +83,15 @@ button{
 .task-card p{
     font-size: 0.8rem;
     color: grey
+}
+
+.completed{
+    text-decoration: line-through;
+    color: grey
+}
+
+.delete{
+    background-color: rgb(227, 50, 50);
+    color: white;
+    margin-left: 0.5rem;
 }

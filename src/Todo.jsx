@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { addTodo, clearAll } from './todoSlice';
+import { addTodo, clearAll, completeTask, deleteTask } from './todoSlice';
 
 const Todo = () => {
 
@@ -29,6 +29,14 @@ const Todo = () => {
         dispatch(clearAll())
     }
 
+    const complete = (task) => {
+        dispatch(completeTask(task))
+    }
+
+    const del = (task) => {
+        dispatch(deleteTask(task))
+    }
+
     return (
         <>
         <h1 className="heading">Todo Using Redux</h1>
@@ -48,8 +56,15 @@ const Todo = () => {
                 {tasks.map((item) => {
                     return(<div key={item.id} className="task-card">
                         <div>
-                            <h1>{item.task}</h1>
+                            <h1 className={item.completed ? "completed" : ""}>{item.task}</h1>
                             <p>{item.description}</p>
+                        </div>
+                        <div>
+                            {item.completed ? "completed" : (<button onClick={()=> complete(item)}>Complete</button>)}
+
+                            <button className='delete' onClick={()=> del(item)}>
+                                Delete
+                            </button>
                         </div>
                     </div>)
 
