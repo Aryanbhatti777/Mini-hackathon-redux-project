@@ -7,16 +7,27 @@ body{
     height: 100vh;
     width: 100vw;
     background-color: black;
-    display:flex;
+    color: white;
+    display: flex;
     justify-content: center;
-    align-items: center;
-    flex-direction: column
+    /* align-items: center */
+}
+
+
+.heading{
+    text-align: center;
+    font-variant: small-caps;
+    margin: 2rem;
+}
+
+.form{
+    display: flex;
+    justify-content: center;
+    align-items: center
 }
 
 form{
-
-    background-color: #1e1d1d;
-    height: 30vh;
+    padding: 2rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -24,12 +35,46 @@ form{
 }
 
 form input{
-    padding: 1rem 2rem
+    padding: 1rem 2rem;
+    border-radius: 0.7rem;
+    border: none;
+}
+
+button, input[type="submit"]{
+    cursor: pointer
+}
+
+button{
+    padding: 1rem 2rem;
+    height: 100%;
+    border-radius: 0.7rem;
+    border: none;
 }
 
 .tasks{
-    width: 80vw;
-    height: 70vh;
-    background-color: rgb(20, 20, 20);
-    color: white
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 70vw;
+    align-items: left;
+    gap: 2rem;
+    padding-top: 2rem;
+}
+
+.task-card div:first-child{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: left;
+    gap: 0.5rem
+}
+
+.task-card h1{
+    font-size: 1.6rem;
+    font-weight: 300;
+}
+
+.task-card p{
+    font-size: 0.8rem;
+    color: grey
 }

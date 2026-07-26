@@ -17,9 +17,14 @@ export const todoSlice = createSlice({
             })
 
             localStorage.setItem("task", JSON.stringify(state.tasks))
-        }
+        },
+
+        clearAll: (state) => {
+            state.tasks = [];
+            localStorage.clear()
+        } 
     }
 })
 
-export const { addTodo } = todoSlice.actions
+export const { addTodo, clearAll } = todoSlice.actions
 export default todoSlice.reducer
