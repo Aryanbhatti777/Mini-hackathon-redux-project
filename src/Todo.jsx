@@ -1,0 +1,47 @@
+import React, { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import { addTodo } from './todoSlice';
+
+const Todo = () => {
+
+    const [task, setTask] = useState("");
+    const [description, setDescription] = useState("")
+
+    const dispatch = useDispatch();
+    const tasks = useSelector((state) => state.addTodo.tasks)
+
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        const newTask = {
+            task,
+            description
+        }
+
+        dispatch(addTodo(newTask))
+    }
+
+    return (
+        <>
+            <form onSubmit={handleSubmit}>
+                <input type="text" name="task" placeholder="Enter task..." value={task} onChange={(e) => setTask(e.target.value)} />
+                <input type="text" name="description" placeholder="Enter Task description" value={description} onChange={(e) => setDescription(e.target.value)} />
+                <input type="submit" value="Add Task" />
+            </form>
+
+            <div className="tasks">
+                {tasks.map((item) => {
+                    return(<div key={item.task}>
+                        <h1>{item.task}</h1>
+                        <p>{item.description}</p>
+                    </div>)
+
+                })}
+
+            </div>
+        </>
+    )
+}
+
+export default Todo;
