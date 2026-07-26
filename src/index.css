@@ -26,6 +26,10 @@ body{
     align-items: center
 }
 
+.form button{
+    margin-left: 0.3rem
+}
+
 form{
     padding: 2rem;
     display: flex;
@@ -94,4 +98,19 @@ button{
     background-color: rgb(227, 50, 50);
     color: white;
     margin-left: 0.5rem;
+}
+
+.edit{
+    background-color: yellow;
+    margin-left: 0.5rem;
+
+}
+
+.complete{
+    background-color: green;
+    color: white
+}
+
+.add-update{
+    background-color: rgb(123, 231, 231);
 }
