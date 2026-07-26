@@ -1,0 +1,35 @@
+*{
+    margin:0;
+    padding:0;
+}
+
+body{
+    height: 100vh;
+    width: 100vw;
+    background-color: black;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column
+}
+
+form{
+
+    background-color: #1e1d1d;
+    height: 30vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem
+}
+
+form input{
+    padding: 1rem 2rem
+}
+
+.tasks{
+    width: 80vw;
+    height: 70vh;
+    background-color: rgb(20, 20, 20);
+    color: white
+}
