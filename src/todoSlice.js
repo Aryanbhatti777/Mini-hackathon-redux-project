@@ -11,6 +11,7 @@ export const todoSlice = createSlice({
     reducers: {
         addTodo: (state, actions) => {
             state.tasks.push({
+                id: Date.now(),
                 task: actions.payload.task,
                 description: actions.payload.description,
                 completed: false

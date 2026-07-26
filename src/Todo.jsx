@@ -46,7 +46,7 @@ const Todo = () => {
 <hr />
             <div className="tasks">
                 {tasks.map((item) => {
-                    return(<div key={item.task} className="task-card">
+                    return(<div key={item.id} className="task-card">
                         <div>
                             <h1>{item.task}</h1>
                             <p>{item.description}</p>
